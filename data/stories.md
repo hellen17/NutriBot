@@ -9,8 +9,8 @@
   - utter_greet
 * affirm
 <!-- activate form -->
-  - health_form
-  - form{"name":"health_form"}  
+  - user_form
+  - form{"name":"user_form"}  
 <!-- deactivate form assuming all slot values are filled -->
   - form{"name":"null"} 
   - utter_slots_values
@@ -24,8 +24,8 @@
   - utter_greet
 * affirm
 <!-- activate form -->
-  - health_form
-  - form{"name":"health_form"}  
+  - user_form
+  - form{"name":"user_form"}  
 <!-- deactivate form assuming all slot values are filled -->
   - form{"name":"null"} 
   - utter_slots_values
@@ -41,8 +41,8 @@
   - utter_greet
 * affirm
 <!-- activate form -->
-  - health_form
-  - form{"name":"health_form"}  
+  - user_form
+  - form{"name":"user_form"}  
 * out_of_scope
   - utter_ask_continue
 * deny
@@ -55,13 +55,13 @@
   - utter_greet
 * affirm
 <!-- activate form -->
-  - health_form
-  - form{"name":"health_form"}  
+  - user_form
+  - form{"name":"user_form"}   
 * out_of_scope
   - utter_ask_continue
 * affirm
-  - health_form
-  - form{"name":"health_form"}  
+  - user_form
+  - form{"name":"user_form"}  
   - utter_slots_values
   - utter_complete_form
 
@@ -71,20 +71,18 @@
 * deny
   - utter_goodbye
 
- ## ask health questions form
+## ask questions form
 * greet
   - utter_greet
 * affirm
-  - health_form
-  - form{"name":"health_form"}    
-* ask_exercise
-  - utter_ask_condition
-  - health_form
+  - user_form
+  - form{"name":"user_form"}    
+* ask_dietary_changes
+  - utter_dietary_info
+  - user_form
   - form{"name":"null"}  
   - utter_complete_form
   
-
-
 ## say goodbye
 * goodbye
   - utter_goodbye
@@ -99,7 +97,7 @@
 
 ## ask dietary changes  
 * ask_dietary_changes
-- utter_foods_to_avoid
+- utter_dietary_info
 
 ## ask vitamins 
 * ask_vitamins
@@ -124,4 +122,6 @@
 ## ask artificial ingredients
 * ask_artificial_ingredients
 - utter_artificial_ingredients_info
+
+
 

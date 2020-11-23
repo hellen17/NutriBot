@@ -1,23 +1,24 @@
+
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - condition
-  - ask_food_associated_condition
-  - ask_dietary_changes
-  - ask_vitamins
-  - thankyou
-  - ask_gluten
-  - ask_sugar
-  - ask_dairy
-  - ask_corn
-  - ask_artificial_ingredients
-  - out_of_scope
-  - inform
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- condition
+- ask_food_associated_condition
+- ask_dietary_changes
+- ask_vitamins
+- thankyou
+- ask_gluten
+- ask_sugar
+- ask_dairy
+- ask_corn
+- ask_artificial_ingredients
+- out_of_scope
+- inform
 
    #  unfeaturized stores data in the slot that doesnt interfere with the dialog flow
 slots:
@@ -25,26 +26,27 @@ slots:
   type: unfeaturized
  medication:
   type: unfeaturized
- diet:
+ name:
   type: unfeaturized  
- stress:
+ age:
   type: unfeaturized
-  sleep:
-  type: unfeaturized
+
 
 entities:
   - condition
   - medication 
-  - diet
-  - stress
-  - sleep
+  - name
+  - age
  
+actions:
+  - utter_greet
+  - utter_vitamins_info 
 
 responses:
   utter_greet:
-  - text: "Hi! My name is NutritionBot. 
-   I offer nutritional advice for people with special needs and track your eating habits.
-   Before we begin, would you like to answer a few questions about your health to help me get to know you better?"
+  - text: "Hi! My name is NutriBot. 
+   I offer nutritional advice for people with special needs. I also recommend recipes and meals.
+   Before we begin, would you like to answer a few questions to get to know you better?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -93,25 +95,6 @@ responses:
   utter_artificial_ingredients_info:
   - text: "Research points to a possible link between autism symptoms and artificial ingredients in our food supply. Avoid all additives, preservatives, dyes and artificial colors, artificial flavorings, and artificial sweeteners. "  
 
-  utter_ask_condition:
-  - text: "What health condition do you have?"  
-
-  utter_ask_diet:
-  - text: "How would you describe your diet?"
-
-  utter_ask_medication:
-  - text: "Are you under any medication?"
-  
-  
-  utter_ask_sleep:
-  - text: How much sleep did you get last night?
-
-  utter_ask_stress:
-  - text: Is your stress level low, medium or high?
-  
-  utter_complete_form:
-  - text: "Thanks for filling in the form. You may proceed to ask me asking me a question e.g which foods to avoid when you have autism? "
-      
   utter_dietary_info:
   - text: "There is no specific ASD diet, but removing certain proteins may relieve symptoms. The gluten-free, casein-free (GFCF) diet has the most research and is one of the most common dietary interventions." 
 
@@ -119,17 +102,41 @@ responses:
   - text: "Vitamin and mineral supplements included for general deficiency in some autism treatment plans include vitamins A, B6, C, and D, as well as folate and magnesium."  
 
 
+# ask for personal details
+
+
+  utter_ask_name:
+  - text: "Please enter your child's full name" 
+
+  utter_ask_condition:
+  - text: "Please enter your child's condition"  
+
+  utter_ask_age:
+  - text: "Please enter your child's age" 
+
+  utter_ask_medication:
+  - text: "Is your child under any medication?"
+  
+  # utter_ask_sleep:
+  # - text: How much sleep did you get last night?
+
+  # utter_ask_stress:
+  # - text: Is your stress level low, medium or high?
+  
+  utter_complete_form:
+  - text: "Thanks for filling in the form. You may proceed to ask me asking me a question e.g which foods to avoid when you have autism? "
+      
+  
   utter_slots_values:
-  - text: " Here's your daily wellness log:\n
+  - text: " Here's your child's details:\n
+          - Name of child:{name}\n
+          - Age:{age}\n
           - Type of condition:{condition}\n
-          - Sleep:{sleep}\n
-          - Diet?:{diet}\n
-          - Stress levels:{stress}\n
           - Medication:{medication}"          
 
 
-  forms:
-  - health_form
+forms:
+- user_form
 
 session_config:
   session_expiration_time: 60

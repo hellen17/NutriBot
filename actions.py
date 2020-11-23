@@ -38,20 +38,21 @@ import requests
 import json
 import os 
 
-class HealthForm(FormAction):
+class UserForm(FormAction):
 
     def name(self):
-        return "health_form"
+        return "user_form"
 
     @staticmethod
     def required_slots(tracker):
 
-        if tracker.get_slot('condition') == True:
-            return ["confirm_exercise", "exercise", "sleep",
-             "diet", "stress", "goal"]
-        else:
-            return ["confirm_exercise", "sleep",
-             "diet", "stress", "goal"]
+        # if tracker.get_slot('name') == True:
+        #     return ["name", "condition", "medication",
+        #      "age"]
+        # else:
+        #     return ["condition", "age", "medication"]
+         return ["name", "condition","age", "medication"]
+        
 
     def submit(
         self,
@@ -60,16 +61,16 @@ class HealthForm(FormAction):
         domain: Dict[Text, Any],
     ) -> List[Dict]:
 
-            response = create_health_log(
-                tracker.get_slot("confirm_exercise"),
-                tracker.get_slot("exercise"),
-                tracker.get_slot("sleep"),
-                tracker.get_slot("stress"),
-                tracker.get_slot("diet"),
-                tracker.get_slot("goal")
-            )
+            # response = create_health_log(
+            #     tracker.get_slot("confirm_exercise"),
+            #     tracker.get_slot("exercise"),
+            #     tracker.get_slot("sleep"),
+            #     tracker.get_slot("stress"),
+            #     tracker.get_slot("diet"),
+            #     tracker.get_slot("goal")
+            # )
 
-            dispatcher.utter_message("Thanks, your answers have been recorded!")
+            # dispatcher.utter_message("Thanks, your answers have been recorded!")
 
             return []
 
@@ -83,21 +84,26 @@ class HealthForm(FormAction):
         #     or a list of them, where a first match will be picked"""
 
         return {
-            "confirm_exercise": [
-                self.from_intent(intent="affirm", value=True),
-                self.from_intent(intent="deny", value=False),
-                self.from_intent(intent="inform", value=True),
+            "name": [
+
+                self.from_text(intent="inform"),
+                # self.from_entity(entity="sleep"),
+                # self.from_intent(intent="deny", value="None"),
             ],
-            "sleep": [
-                self.from_entity(entity="sleep"),
+            "condition": [
+                self.from_text(intent="inform"),
+            ],
+            "age": [
+                self.from_text(intent="inform"),
+
+                # self.from_text(intent="inform"),
+                # self.from_text(intent="affirm"),
+                # self.from_text(intent="deny"),
+            ],
+            "medication": [
+                self.from_text(intent="inform"),
                 self.from_intent(intent="deny", value="None"),
-            ],
-            "diet": [
-                self.from_text(intent="inform"),
-                self.from_text(intent="affirm"),
-                self.from_text(intent="deny"),
-            ],
-            "goal": [
-                self.from_text(intent="inform"),
+                self.from_intent(intent="affirm", value=True),
+
             ],
         }
