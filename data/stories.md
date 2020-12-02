@@ -82,7 +82,21 @@
   - user_form
   - form{"name":"null"}  
   - utter_complete_form
-  
+<!-- 
+## calorie form
+* greet
+  - utter_greet
+* calorie_intake
+  - calorie_form
+  - form{"name":"calorie_form"}   
+  - form{"name":"null"} 
+  - utter_slots_values
+  - utter_complete_form
+* thankyou
+  - utter_no_worries
+  - utter_goodbye -->
+
+
 ## say goodbye
 * goodbye
   - utter_goodbye

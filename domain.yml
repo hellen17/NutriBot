@@ -19,6 +19,7 @@ intents:
 - ask_artificial_ingredients
 - out_of_scope
 - inform
+- calorie_intake
 
    #  unfeaturized stores data in the slot that doesnt interfere with the dialog flow
 slots:
@@ -30,6 +31,17 @@ slots:
   type: unfeaturized  
  age:
   type: unfeaturized
+ height:
+  type: unfeaturized
+ weight:
+  type: unfeaturized
+ gender:
+  type: unfeaturized 
+ meal:
+  type: unfeaturized 
+
+
+
 
 
 entities:
@@ -37,6 +49,10 @@ entities:
   - medication 
   - name
   - age
+  - gender
+  - height
+  - weight
+  - meal
  
 actions:
   - utter_greet
@@ -116,6 +132,21 @@ responses:
 
   utter_ask_medication:
   - text: "Is your child under any medication?"
+
+  #for calories
+
+  utter_ask_gender:
+  - text: "Please enter your child's gender(male or female)"
+
+  utter_ask_height:
+  - text: "Please enter your child's height(in metres)"
+
+  utter_ask_weight:
+  - text: "Please enter your child's weight(in kg)"
+
+  utter_ask_meal:
+  - text: "What meal did your child have today?"
+
   
   # utter_ask_sleep:
   # - text: How much sleep did you get last night?
@@ -132,11 +163,16 @@ responses:
           - Name of child:{name}\n
           - Age:{age}\n
           - Type of condition:{condition}\n
-          - Medication:{medication}"          
+          - Medication:{medication}\n
+          - Gender: {gender}  \n
+          - Height: {height}\n 
+          - Weight: {weight}\n
+          - Meal: {meal}  "   
 
 
 forms:
 - user_form
+- calorie_form
 
 session_config:
   session_expiration_time: 60

@@ -60,8 +60,22 @@
 - [Rose Atieno](name)
 - [Peter](name)
 - [Mercy Okello](name)
+- [male](gender)
+- [female](gender)
+- [1.8 meters](height)
+- [1.5 m](height)
+- [1.75 meters](height)
+- [64] kg (weight)
+- [40] kg (weight)
+- [24] kg(weight)
+- [Salmon and cheese](meal)
+- [Rice and greengrams](meal)
 
 
+## intent:calorie_intake
+- Track my calorie intake
+- What is my maximum calorie intake?
+- How many calories does my body require?
 
 ## intent:bot_challenge
 - are you a bot?
