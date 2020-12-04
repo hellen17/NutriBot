@@ -129,6 +129,13 @@ responses:
 
   utter_ask_age:
   - text: "Please enter your child's age" 
+    buttons:
+    - title: "Less than 10 years"
+      payload: "< 10"
+    - title: "Between 10 and 15 years"
+      payload: "10-15"
+    - title: "Between 15 and 19 years"
+      payload: "15-19"
 
   utter_ask_medication:
   - text: "Is your child under any medication?"
@@ -137,6 +144,11 @@ responses:
 
   utter_ask_gender:
   - text: "Please enter your child's gender(male or female)"
+    buttons:
+    - title: "female"
+      payload: "female"
+    - title: "male"
+      payload: "male"
 
   utter_ask_height:
   - text: "Please enter your child's height(in metres)"

@@ -47,27 +47,29 @@
 ## intent:inform
 - [autism](condition)
 - [autism spectrum disorder](condition)
+- [asd](condition)
 - [ASD](condition)
-- She has [autistic](condition)
-- [no]medication (medication)
+- She has [autistim](condition)
+- [no] (medication)medication
 - [she doesnt take any medication](medication)
-- [yes], he takes medication(medication)
-- [8] years old(age)
-- [10] yrs old(age)
-- [12] (age)
-- [6] years old(age)
+- [yes](medication) , he takes medication
+<!-- - [8] (age) years old
+- [10] (age) yrs old
+- [12] (age) -->
+<!-- - [6](age) years old -->
+- 6 years old
+- 8 yrs old
+- 12 years old
+- 13 years old
 - [Henry Calvin](name)
 - [Rose Atieno](name)
 - [Peter](name)
 - [Mercy Okello](name)
 - [male](gender)
 - [female](gender)
-- [1.8 meters](height)
-- [1.5 m](height)
-- [1.75 meters](height)
-- [64] kg (weight)
-- [40] kg (weight)
-- [24] kg(weight)
+- [1.8 ](height) meters
+- [1.5 ](height) m
+- [1.75 ](height) meters
 - [Salmon and cheese](meal)
 - [Rice and greengrams](meal)
 

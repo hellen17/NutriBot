@@ -93,6 +93,7 @@ class UserForm(FormAction):
             ],
             "condition": [
                 self.from_text(intent="inform"),
+                self.from_entity(entity="condition"),
             ],
             "age": [
                 self.from_text(intent="inform"),
