@@ -53,26 +53,68 @@
 - [no] (medication)medication
 - [she doesnt take any medication](medication)
 - [yes](medication) , he takes medication
-<!-- - [8] (age) years old
+- [8] (age) years old
 - [10] (age) yrs old
-- [12] (age) -->
-<!-- - [6](age) years old -->
-- 6 years old
-- 8 yrs old
-- 12 years old
-- 13 years old
-- [Henry Calvin](name)
+- [12] (age) 
+- [14](age) yrs old
+- [6](age) years old
+<!-- - [Henry Calvin](name)
 - [Rose Atieno](name)
 - [Peter](name)
-- [Mercy Okello](name)
+- [Mercy Okello](name) -->
 - [male](gender)
 - [female](gender)
-- [1.8 ](height) meters
-- [1.5 ](height) m
-- [1.75 ](height) meters
+- [160 ](height) meters
+- [150 ](height) m
+- [175 ](height) meters
+
+<!-- - [64](weight) kg
+- [30](weight) kilograms
+- [34](weight) kg
+- [54](weight) kg
+- [52](weight) kg -->
 - [Salmon and cheese](meal)
 - [Rice and greengrams](meal)
 
+
+<!-- ## intent: age
+- [8] (age) years old
+- [10] (age) yrs old
+- [12] (age) 
+- [14](age) yrs old
+- [6](age) years old -->
+
+<!-- ## intent: gender
+- [male](gender)
+- [female](gender)
+
+## intent: height
+- [160 ](height) meters
+- [150 ](height) m
+- [175 ](height) meters
+- [140 ](height) m
+- [146 ](height) m
+
+## intent: weight
+- [64 ](weight) kg
+- [30 ](weight) kilograms
+- [34 ](weight) kg
+- [54 ](weight) kg
+- [52 ](weight) kg
+
+
+
+## intent: meal
+- [rice](meal)
+- [Salmon and cheese](meal)
+- [Rice and greengrams](meal)
+ -->
+<!--  
+## intent:condition
+- autism
+- autism spectrum disorder
+- ASD
+- autistic -->
 
 ## intent:calorie_intake
 - Track my calorie intake
@@ -86,11 +128,6 @@
 - am I talking to a human?
 
 
-## intent:condition
-- autism
-- autism spectrum disorder
-- ASD
-- autistic
 
 <!-- - down syndrome
 - Attention deficit disorder

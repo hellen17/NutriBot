@@ -7,7 +7,7 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
-- condition
+#- condition
 - ask_food_associated_condition
 - ask_dietary_changes
 - ask_vitamins
@@ -20,6 +20,11 @@ intents:
 - out_of_scope
 - inform
 - calorie_intake
+# - meal
+# - age
+# - weight
+# - height
+# - gender
 
    #  unfeaturized stores data in the slot that doesnt interfere with the dialog flow
 slots:
@@ -27,8 +32,8 @@ slots:
   type: unfeaturized
  medication:
   type: unfeaturized
- name:
-  type: unfeaturized  
+#  name:
+#   type: unfeaturized  
  age:
   type: unfeaturized
  height:
@@ -47,7 +52,7 @@ slots:
 entities:
   - condition
   - medication 
-  - name
+ # - name
   - age
   - gender
   - height
@@ -57,12 +62,16 @@ entities:
 actions:
   - utter_greet
   - utter_vitamins_info 
+  - action_calculate_calorie_intake
 
 responses:
   utter_greet:
-  - text: "Hi! My name is NutriBot. 
-   I offer nutritional advice for people with special needs. I also recommend recipes and meals.
-   Before we begin, would you like to answer a few questions to get to know you better?"
+  - text: "Hi! My name is NutriBot. I offer nutritional advice for people with special needs. I also recommend recipes and meals.\n
+  Here is what I can do:\n
+  - Recommend meal\n
+  - Track my calorie intake\n
+  - Ask me a question\n
+  Which one do you want me to do?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -121,21 +130,21 @@ responses:
 # ask for personal details
 
 
-  utter_ask_name:
-  - text: "Please enter your child's full name" 
+ # utter_ask_name:
+ # - text: "Please enter your child's full name" 
 
   utter_ask_condition:
   - text: "Please enter your child's condition"  
 
   utter_ask_age:
   - text: "Please enter your child's age" 
-    buttons:
-    - title: "Less than 10 years"
-      payload: "< 10"
-    - title: "Between 10 and 15 years"
-      payload: "10-15"
-    - title: "Between 15 and 19 years"
-      payload: "15-19"
+    # buttons:
+    # - title: "Less than 10 years"
+    #   payload: "< 10"
+    # - title: "Between 10 and 15 years"
+    #   payload: "10-15"
+    # - title: "Between 15 and 19 years"
+    #   payload: "15-19"
 
   utter_ask_medication:
   - text: "Is your child under any medication?"
@@ -151,7 +160,7 @@ responses:
       payload: "male"
 
   utter_ask_height:
-  - text: "Please enter your child's height(in metres)"
+  - text: "Please enter your child's height(in cm)"
 
   utter_ask_weight:
   - text: "Please enter your child's weight(in kg)"
@@ -169,10 +178,18 @@ responses:
   utter_complete_form:
   - text: "Thanks for filling in the form. You may proceed to ask me asking me a question e.g which foods to avoid when you have autism? "
       
-  
+  # utter_menu:
+  # - text: "What would you like to do today?"
+  #   buttons:
+  #   - title: "Track the calories in my meal"
+  #     payload: "/begin_lead"
+  #   - title: "Recommend recipes in low fat, low gluten"
+  #     payload: "/begin_lead"
+  #   - title: "Ask for Advice"
+  #     payload: "/begin_lead"
+
   utter_slots_values:
   - text: " Here's your child's details:\n
-          - Name of child:{name}\n
           - Age:{age}\n
           - Type of condition:{condition}\n
           - Medication:{medication}\n

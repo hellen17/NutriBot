@@ -29,15 +29,22 @@
 
 from typing import Any, Text, Dict, List, Union
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker 
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from dotenv import load_dotenv
+#from rasa_core.events import SlotSet
 
 import requests
 import json
 import os 
 
+#global variables
+rate = 0
+need = 0
+weight = 0
+height = 0
+age = 0
 class UserForm(FormAction):
 
 
@@ -52,7 +59,7 @@ class UserForm(FormAction):
         #      "age"]
         # else:
         #     return ["condition", "age", "medication"]
-         return ["name", "condition", "age", "medication", "gender", "height", "weight", "meal"]
+         return ["condition", "age", "medication", "gender", "height", "weight", "meal"]
         
 
     def submit(
@@ -85,12 +92,7 @@ class UserForm(FormAction):
         #     or a list of them, where a first match will be picked"""
 
         return {
-            "name": [
-
-                self.from_text(intent="inform"),
-                # self.from_entity(entity="sleep"),
-                # self.from_intent(intent="deny", value="None"),
-            ],
+        
             "condition": [
                 self.from_text(intent="inform"),
                 self.from_entity(entity="condition"),
@@ -123,6 +125,30 @@ class UserForm(FormAction):
                 self.from_text(intent="inform"),
             ],
         }
+
+
+
+class CalculateCalorieIntakeAction(Action):
+ def name(self):
+  """name of the custom action"""
+  return "action_calculate_calorie_intake"
+
+ def run(self,dispatcher,tracker,domain):
+  height = tracker.get_slot('height')
+  weight = tracker.get_slot('weight')
+  gender = tracker.get_slot('gender')
+  meal = tracker.get_slot('meal')
+
+# if the user is male, use the bmr formula for men
+  if gender == "male":
+    rate = 66.473 + (13.7516 * int(weight)) + (5.0003 * int(height)) - (6.7550 * int(age))
+# if the user is female, use the bmr formula for women     
+  if gender == "female": 
+    rate = 655.0955 + (9.5634 * int(weight)) + (1.8496 * int(height)) - (4.6756 * int(age))
+
+  message = "Without any activity, your body burns %s calories everyday" %rate
+  #message="BOOKING DETAILS:"+"\n\n"+"Checkin Date:"+check_in+"\n"+"Checkout Date:"+check_out+"\n"+"No. of Adults:"+adults+"\n"+"No. of Children:"+child+"\n"+"No.of Rooms:"+room+"\n"+"Phone Number:"+phno+"\n"+"Email:"+email
+  dispatcher.utter_message(message)  
 
 #calorie
 # class CalorieForm(FormAction):

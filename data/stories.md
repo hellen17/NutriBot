@@ -4,16 +4,37 @@
 * mood_great
   - utter_happy
 
+
+<!-- ## survey happy path
+* greet
+  - utter_greet
+* calorie_intake
+  - utter_ask_condition
+* condition
+  - utter_ask_age 
+* age
+  - utter_ask_gender
+* gender
+  - utter_ask_height
+* height
+  - utter_ask_weight    
+* weight 
+  - utter_ask_meal
+* meal
+  - action_calculate_calorie_intake -->
+
+
 ## survey happy path
 * greet
   - utter_greet
-* affirm
+* calorie_intake
 <!-- activate form -->
   - user_form
   - form{"name":"user_form"}  
 <!-- deactivate form assuming all slot values are filled -->
   - form{"name":"null"} 
   - utter_slots_values
+  - action_calculate_calorie_intake
   - utter_complete_form
 * thankyou
   - utter_no_worries
@@ -22,7 +43,7 @@
 ## survey happy path 2
 * greet
   - utter_greet
-* affirm
+* calorie_intake
 <!-- activate form -->
   - user_form
   - form{"name":"user_form"}  
@@ -39,7 +60,7 @@
 ## survey stop
 * greet
   - utter_greet
-* affirm
+* calorie_intake
 <!-- activate form -->
   - user_form
   - form{"name":"user_form"}  
@@ -53,7 +74,7 @@
 ## survey continue
 * greet
   - utter_greet
-* affirm
+* calorie_intake
 <!-- activate form -->
   - user_form
   - form{"name":"user_form"}   
